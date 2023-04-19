@@ -17,9 +17,19 @@
     <properties>
         <ninja.version>6.9.0</ninja.version>
         <jetty.version>9.4.44.v20210927</jetty.version>
+        <flyway.appUser>postgres</flyway.appUser>
+        <flyway.password>root</flyway.password>
+        <flyway.schemas>public</flyway.schemas>
+        <flyway.url>jdbc:postgresql://localhost:5432/projectDB</flyway.url>
+        <flyway.locations>filesystem:db/migration</flyway.locations>
     </properties>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.2.4</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -209,5 +219,44 @@
             <version>${ninja.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+
+<!--        -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.3.1.Final</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+
+
+<!--        -->
+
+
+
+
+
     </dependencies>
 </project>

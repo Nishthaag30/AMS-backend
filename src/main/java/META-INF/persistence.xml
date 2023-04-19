@@ -75,16 +75,22 @@
     </persistence-unit>
 
     <!-- The following config is an example config for postgresql -->
-    <persistence-unit name="postgresql" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="projectDB" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
         <properties>
+            <property name="javax.persistence.jdbc.driver" 	value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/projectDB" />
+            <property name="javax.persistence.jdbc.appUser" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="root" />
+
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 
             <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" /> 
-            
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.connection.autocommit" value="true"/>
+
             <!-- Connection Pooling settings -->
             <property name="hibernate.connection.provider_class"
                 value="org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider" />
